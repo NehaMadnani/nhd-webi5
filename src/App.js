@@ -132,7 +132,7 @@ const LandingPage = () => {
           Introducing NotHotDog
         </h2>
         <h1 className="text-5xl font-bold mb-6">
-          Testing, Simulation & Experimentation platform for your AI Agents!
+          Simulation, Evaluation & Experimentation platform for your AI Agents!
         </h1>
         <p className="text-xl text-gray-600 mb-8">
           NotHotDog generates comprehensive suite of scenarios, and helps you experiments on your agents in no time. Ship fast with confidence!
@@ -192,26 +192,27 @@ const LandingPage = () => {
               {
                 step: 1,
                 title: "Connect",
-                description: "Connect & configure your agent with NotHotDog",
+                description: "Set up your agent seamlessly by integrating it with NotHotDog's platform with a single click.",
                 icon: "🔌"
               },
+              
               {
                 step: 2,
-                title: "Samples",
-                description: "Enter a sample input and output",
-                icon: "📋"
+                title: "Generate",
+                description: "Automatically generate diverse and realistic scenarios tailored to test your agent's capabilities.",
+                icon: "⚡"
               },
               {
                 step: 3,
-                title: "Generate",
-                description: "Generate multiple scenarios for your agent(s)",
-                icon: "⚡"
+                title: "Evaluate",
+                description: "Analyze your agent's performance across multiple scenarios to identify strengths and areas for improvement.",
+                icon: "🧑‍💻"
               },
               {
                 step: 4,
                 title: "Experiment",
-                description: "Run all the simulations & experiments to achieve highest reliability",
-                icon: "🔬"
+                description: "Continuously refine your agent through real-world simulations and rigorous experimentation for optimal reliability.",
+                icon: "⚙️"
               }
             ].map((item) => (
               <div key={item.step} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
