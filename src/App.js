@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import cloudflare from './static/cloudflare-logo.png';
 import skydeck from './static/skydeck.jpg';
-import heroimage from './static/hero_image.png';
 import product from './static/product-screen.png';
 import Footer from "./Footer";
 
@@ -161,7 +160,7 @@ const LandingPage = () => {
           <img 
             src={product} 
             alt="Product Screen"
-            className="border-8 border-blue-200 rounded-3xl shadow-lg object-contain max-w-full"
+            className="border-8 border-blue-400 rounded-3xl shadow-lg object-contain max-w-full"
           />
         </div>
       </div>
