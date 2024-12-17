@@ -104,14 +104,14 @@ const LandingPage = () => {
               <span className="text-xl font-bold">NotHotDog</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
+              {/* <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
               <a href="#benefits" className="text-gray-600 hover:text-gray-900">Benefits</a>
               <a href="#testimonials" className="text-gray-600 hover:text-gray-900">Testimonials</a>
               <a className="text-gray-600 hover:text-gray-900"  href="https://calendly.com/nehasuresh/1-1-discussion" 
                   target="_blank" 
                   rel="noreferrer noopener"/>
                  
-              <a href="#about" className="text-gray-600 hover:text-gray-900">About</a>
+              <a href="#about" className="text-gray-600 hover:text-gray-900">About</a> */}
             </div>
             <button 
               onClick={() => setIsModalOpen(true)}
