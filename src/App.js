@@ -127,7 +127,7 @@ const LandingPage = () => {
           Simulation, Evaluation & Experimentation platform for your AI Agents!
         </h1>
         <p className="text-xl text-gray-600 mb-8">
-          NotHotDog generates comprehensive suite of scenarios, and helps you experiments on your agents in no time. Ship fast with confidence!
+          NotHotDog generates comprehensive suite of scenarios, and helps you run experiments on your agents in no time. Ship fast with confidence!
         </p>
         <div className="flex gap-4">
           <button
