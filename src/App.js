@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import cloudflare from './static/cloudflare-logo.png';
 import skydeck from './static/skydeck.jpg';
 import product from './static/product-screen.png';
-import logo from './static/nothotdog.jpg';
+import logo from './static/nothotdog.png';
 
 import Footer from "./Footer";
 
@@ -100,8 +100,8 @@ const LandingPage = () => {
       <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm z-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
-          <div className="flex items-center space-x-3">
-            <div className="w-24 h-12 rounded-lg overflow-hidden"> {/* Increased size from w-8 h-8 */}
+          <div className="flex items-center space-x-2">
+            <div className="w-11 h-8 rounded-lg overflow-hidden"> {/* Increased size from w-8 h-8 */}
               <img 
                 src={logo} 
                 alt="NotHotDog Logo"
