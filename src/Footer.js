@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import logo from './static/nothotdog.png';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Footer = () => {
   const [showModal, setShowModal] = useState(false);
@@ -42,18 +44,82 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white py-8">
-      <div className="container mx-auto text-center">
-        <h3 className="text-xl font-bold mb-4">Get in Touch</h3>
+    <footer className="bg-gray-900 text-white py-16 min-h-200" style={{ borderTopLeftRadius: "30px", borderTopRightRadius: "30px" }}>
+  {/* Logo and tagline outside the container */}
+  <div className="flex justify-between px-32">
+    <div className="mb-8 flex flex-col items-start justify-start">
+      <div className="flex items-center space-x-2">
+        <img src={logo} alt="NotHotDog Logo" className="w-12 h-12" />
+        <h1 className="text-3xl font-bold">NotHotDog</h1>
+      </div>
+      <p className="text-sm text-gray-400">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+    <div>
+      <h3 className="text-xl font-bold mb-4">Get in Touch</h3>
         <button
           onClick={() => setShowModal(true)}
           className="bg-blue-600 px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
         >
           Contact the Founders
         </button>
+    </div>
+    
+  </div>
 
-        {/* Modal */}
-        {showModal && (
+  {/* Footer content in a single line */}
+  <div className="container mx-auto flex justify-between px-32 space-x-16 py-16">
+    {/* Product */}
+    <div>
+      <h3 className="font-bold mb-4 text-2xl">Product</h3>
+      <ul className="space-y-2 text-lg font-barlow-condensed">
+        <li><a href="#" className="text-gray-400 hover:text-white">Pricing</a></li>
+        <li><a href="#" className="text-gray-400 hover:text-white">Features</a></li>
+        <li><a href="#" className="text-gray-400 hover:text-white">Feature Roadmap</a></li>
+        <li><a href="#" className="text-gray-400 hover:text-white">Join our community</a></li>
+      </ul>
+    </div>
+
+    {/* Features */}
+    <div>
+      <h3 className="font-bold mb-4 text-2xl">Features</h3>
+      <ul className="space-y-2 text-lg font-barlow-condensed">
+        <li><a href="#" className="text-gray-400 hover:text-white">LinkedIn Outreach</a></li>
+        <li><a href="#" className="text-gray-400 hover:text-white">Leads Database</a></li>
+        <li><a href="#" className="text-gray-400 hover:text-white">Unibox</a></li>
+        <li><a href="#" className="text-gray-400 hover:text-white">Team Management</a></li>
+      </ul>
+    </div>
+
+    {/* Resources */}
+    <div>
+      <h3 className="font-bold mb-4 text-2xl">Resources</h3>
+      <ul className="space-y-2 text-lg font-barlow-condensed">
+        <li><a href="#" className="text-gray-400 hover:text-white">Pricing</a></li>
+        <li><a href="#" className="text-gray-400 hover:text-white">FAQ</a></li>
+        <li><a href="#" className="text-gray-400 hover:text-white">Help Center</a></li>
+        <li><a href="#" className="text-gray-400 hover:text-white">Blog</a></li>
+      </ul>
+    </div>
+
+    {/* Solutions */}
+    <div>
+      <h3 className="font-bold mb-4 text-2xl">Solutions</h3>
+      <ul className="space-y-2 text-lg font-barlow-condensed">
+        <li><a href="#" className="text-gray-400 hover:text-white">Sales Teams</a></li>
+        <li><a href="#" className="text-gray-400 hover:text-white">Marketing Agencies</a></li>
+        <li><a href="#" className="text-gray-400 hover:text-white">Recruiters</a></li>
+        <li><a href="#" className="text-gray-400 hover:text-white">Business Owners</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div className="mt-8 text-center text-sm text-gray-400">
+    © 2025 SocialGrowth LLC FZ. All rights reserved. | Terms of Service | Privacy Policy | Partner Guidelines
+  </div>
+
+  {showModal && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
             <div className="bg-white p-8 rounded-2xl shadow-lg w-[90%] max-w-md">
               <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
@@ -117,8 +183,7 @@ const Footer = () => {
             </div>
           </div>
         )}
-      </div>
-    </footer>
+</footer>
   );
 };
 

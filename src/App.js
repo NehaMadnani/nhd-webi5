@@ -3,6 +3,8 @@ import cloudflare from './static/cloudflare-logo.png';
 import skydeck from './static/skydeck.jpg';
 import product from './static/product-screen.png';
 import logo from './static/nothotdog.png';
+import { motion } from "framer-motion";
+import createImage from "./static/create.jpg";
 
 import Footer from "./Footer";
 
@@ -11,6 +13,15 @@ const StepIcon = ({ number }) => (
     {number}
   </div>
 );
+
+const fadeInVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (index) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: index * 0.2, duration: 0.6 },
+  }),
+};
 
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
@@ -177,54 +188,68 @@ const LandingPage = () => {
 
       {/* Four Step Procedure Section */}
       <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              Simple 4-Step Procedure
-            </h2>
-            <p className="text-xl text-gray-600">
-              Use NotHotDog to launch quickly with confidence
-            </p>
-          </div>
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold mb-4">Simple 4-Step Procedure</h2>
+      <p className="text-xl text-gray-600">
+        Use NotHotDog to launch quickly with confidence
+      </p>
+    </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                step: 1,
-                title: "Connect",
-                description: "Set up your agent seamlessly by integrating it with NotHotDog's platform with a single click.",
-                icon: "🔌"
-              },
-              
-              {
-                step: 2,
-                title: "Generate",
-                description: "Automatically generate diverse and realistic scenarios tailored to test your agent's capabilities.",
-                icon: "⚡"
-              },
-              {
-                step: 3,
-                title: "Evaluate",
-                description: "Analyze your agent's performance across multiple scenarios to identify strengths and areas for improvement.",
-                icon: "🧑‍💻"
-              },
-              {
-                step: 4,
-                title: "Experiment",
-                description: "Continuously refine your agent through real-world simulations and rigorous experimentation for optimal reliability.",
-                icon: "⚙️"
-              }
-            ].map((item) => (
-              <div key={item.step} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                <StepIcon number={item.step} />
-                <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-6xl mx-auto relative overflow-visible">
+      {[
+        {
+          step: 1,
+          title: "Connect",
+          description:
+            "Set up your agent seamlessly by integrating it with NotHotDog's platform with a single click.",
+          icon: "🔌",
+        },
+        {
+          step: 2,
+          title: "Generate",
+          description:
+            "Automatically generate diverse and realistic scenarios tailored to test your agent's capabilities.",
+          icon: "⚡",
+        },
+        {
+          step: 3,
+          title: "Evaluate",
+          description:
+            "Analyze your agent's performance across multiple scenarios to identify strengths and areas for improvement.",
+          icon: "🧑‍💻",
+        },
+        {
+          step: 4,
+          title: "Experiment",
+          description:
+            "Continuously refine your agent through real-world simulations and rigorous experimentation for optimal reliability.",
+          icon: "⚙️",
+        },
+      ].map((item, index) => (
+        <motion.div
+          key={item.step}
+          className="relative p-8 rounded-2xl shadow-sm bg-white hover:bg-cover hover:bg-center transform hover:scale-110 transition-transform duration-900"
+          style={{ backgroundImage: `url(${createImage})` }}
+          whileHover={{ scale: 1.3 }}
+          transition={{ duration: 0.2 }}
+          variants={fadeInVariants}
+          custom={index}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <StepIcon number={item.step} />
+          <div className="text-4xl mb-4">{item.icon}</div>
+          <h3 className="text-xl font-bold mb-3 text-white">
+            {item.title}
+          </h3>
+          <p className="text-white">{item.description}</p>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Features Section */}
       <section className="py-20">
