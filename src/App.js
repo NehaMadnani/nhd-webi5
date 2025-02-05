@@ -3,10 +3,16 @@ import cloudflare from './static/cloudflare-logo.png';
 import skydeck from './static/skydeck.jpg';
 import product from './static/product-screen.png';
 import logo from './static/nothotdog.png';
+import img1 from './static/Step1.png';
+import img2 from './static/Step2.jpeg';
+import img3 from './static/Step3.jpg';
+import img4 from './static/Step4.jpg';
 import { motion } from "framer-motion";
 import createImage from "./static/create.jpg";
+import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 
 import Footer from "./Footer";
+import { img } from "framer-motion/client";
 
 const StepIcon = ({ number }) => (
   <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white text-xl font-bold mb-4">
@@ -104,54 +110,102 @@ const RequestAccessForm = ({ onClose }) => {
 
 const LandingPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+
+  // Toggle dropdown function
+  const toggleDropdown = (menu) => {
+    setOpenDropdown(openDropdown === menu ? null : menu);
+  };
 
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm z-50">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
-          <div className="flex items-center space-x-2">
-            <div className="w-11 h-8 rounded-lg overflow-hidden"> {/* Increased size from w-8 h-8 */}
+      <nav className="fixed top-0 left-0 right-0 backdrop-blur-md z-50">
+      <div className="container mx-auto">
+        <div className="flex items-center bg-blue-600/80 justify-between h-16 border-b border-blue-400">
+          <div className="flex items-center space-x-3">
+            <div className="w-12 h-8 rounded-lg overflow-hidden">
               <img 
-                src={logo} 
+                src={logo} // Replace with your actual logo URL
                 alt="NotHotDog Logo"
                 className="w-full h-full object-cover"
               />
             </div>
-            <span className="text-2xl font-bold text-gray-800">NotHotDog</span> {/* Increased text size and added color */}
+            <span className="text-lg font-semibold text-white">NotHotDog</span>
           </div>
-            <div className="hidden md:flex items-center space-x-8">
-            </div>
-            <button 
-              onClick={() => setIsModalOpen(true)}
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              Request Access
-            </button>
+
+          {/* Search Bar */}
+          <div className="relative hidden md:block flex-grow max-w-lg mx-auto">
+            <input
+              type="text"
+              placeholder="Search"
+              className="bg-white/10 text-white placeholder-white px-4 py-2 pl-10 rounded-full w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+            <span className="absolute left-3 top-2 text-gray-400">🔍</span>
           </div>
+          <button className="text-white px-5 py-2 mr-6 border border-white rounded-lg hover:bg-white hover:text-blue-900 transition">
+            Sign in
+          </button>
         </div>
-      </nav>
+        <div className="flex items-center justify-between h-12 text-white bg-blue-800/80">
+          <div className="hidden md:flex items-center space-x-6 px-2">
+            {["Individuals", "Business", "Public Sector", "Courses", "Resources"].map((menu) => (
+              <div key={menu} className="relative">
+                <button 
+                  className="flex items-center space-x-1 hover:text-gray-300"
+                  onClick={() => toggleDropdown(menu)}
+                >
+                  <span>{menu}</span>
+                  {openDropdown === menu ? (
+                    <FaChevronUp className="text-xs" />
+                  ) : (
+                    <FaChevronDown className="text-xs" />
+                  )}
+                </button>
+
+                {/* Dropdown Content */}
+                {openDropdown === menu && (
+                  <div className="absolute left-0 mt-2 w-48 bg-white text-black rounded-md shadow-lg">
+                    <ul className="py-2">
+                      <li className="px-4 py-2 hover:bg-gray-200">Option 1</li>
+                      <li className="px-4 py-2 hover:bg-gray-200">Option 2</li>
+                      <li className="px-4 py-2 hover:bg-gray-200">Option 3</li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Get Started Button */}
+          <button className="bg-orange-500 text-white px-4 py-2 rounded-full shadow-m shadow-orange-300 hover:bg-orange-600 hover:shadow-xl transition-all">
+            Request early access
+          </button>
+        </div>
+      </div>
+    </nav>
+
+
 
       {/* Hero Section */}
       {/* Hero Section */}
-<section className="pt-32 pb-20">
-  <div className="container mx-auto px-4">
+      <section className="pt-32 px-20 pt-40 pb-20">
+  <div className="container mx-auto lg:px-8 py-20 relative z-10 bg-blue-800 rounded-3xl">
     <div className="flex flex-col lg:flex-row items-center">
       <div className="lg:w-1/2 lg:pr-12">
-        <h2 className="text-gray-500 text-xl mb-4">
+        <h2 className="text-blue-300 text-xl mb-4">
           Introducing NotHotDog
         </h2>
-        <h1 className="text-5xl font-bold mb-6">
+        <h1 className="text-5xl font-bold text-white mb-6">
           Simulation, Evaluation & Experimentation platform for your AI Agents!
         </h1>
-        <p className="text-xl text-gray-600 mb-8">
+        <p className="text-xl text-blue-300 mb-8">
           NotHotDog generates comprehensive suite of scenarios, and helps you run experiments on your agents in no time. Ship fast with confidence!
         </p>
         <div className="flex gap-4">
           <button
             onClick={() => setIsModalOpen(true)}
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            className="bg-white text-blue-700 px-6 py-3 rounded-lg hover:bg-blue-100 transition-colors"
           >
             Request Early Access
           </button>
@@ -160,7 +214,7 @@ const LandingPage = () => {
             target="_blank" 
             rel="noreferrer noopener"
           > 
-            <button className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors">
+            <button className="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors">
               Book a Demo
             </button>
           </a>
@@ -171,13 +225,14 @@ const LandingPage = () => {
           <img 
             src={product} 
             alt="Product Screen"
-            className="border-8 border-blue-400 rounded-3xl shadow-lg object-contain max-w-full"
+            className="border-8 border-white rounded-3xl shadow-lg object-contain max-w-full"
           />
         </div>
       </div>
     </div>
   </div>
 </section>
+
 
 
 
@@ -204,6 +259,7 @@ const LandingPage = () => {
           description:
             "Set up your agent seamlessly by integrating it with NotHotDog's platform with a single click.",
           icon: "🔌",
+          img: img1
         },
         {
           step: 2,
@@ -211,6 +267,7 @@ const LandingPage = () => {
           description:
             "Automatically generate diverse and realistic scenarios tailored to test your agent's capabilities.",
           icon: "⚡",
+          img: img2
         },
         {
           step: 3,
@@ -218,6 +275,7 @@ const LandingPage = () => {
           description:
             "Analyze your agent's performance across multiple scenarios to identify strengths and areas for improvement.",
           icon: "🧑‍💻",
+          img: img3
         },
         {
           step: 4,
@@ -225,12 +283,13 @@ const LandingPage = () => {
           description:
             "Continuously refine your agent through real-world simulations and rigorous experimentation for optimal reliability.",
           icon: "⚙️",
+          img: img4
         },
       ].map((item, index) => (
         <motion.div
           key={item.step}
           className="relative p-8 rounded-2xl shadow-sm bg-white hover:bg-cover hover:bg-center transform hover:scale-110 transition-transform duration-900"
-          style={{ backgroundImage: `url(${createImage})` }}
+          style={{ backgroundImage: `url(${item.img})` }}
           whileHover={{ scale: 1.3 }}
           transition={{ duration: 0.2 }}
           variants={fadeInVariants}
