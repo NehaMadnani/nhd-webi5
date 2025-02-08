@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import cloudflare from './static/cloudflare-logo.png';
 import skydeck from './static/skydeck.jpg';
-import product from './static/Screenshot-2.jpg';
+import product from './static/product-screen.jpg';
 import logo from './static/nothotdog.png';
 
 import Footer from "./Footer";
