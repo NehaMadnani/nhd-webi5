@@ -55,7 +55,7 @@ const Footer = () => {
       </div>
       <div className="absolute flex items-center space-x-3 right-10 bottom-4">
         <a
-          href="https://github.com/NehaMadnani/nothotdog-website"
+          href="https://github.com/AgentEvaluation/NotHotDog"
           target="_blank"
           rel="noopener noreferrer"
           className="text-4xl hover:text-gray-400 transition-all"
