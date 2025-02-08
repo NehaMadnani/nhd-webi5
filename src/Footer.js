@@ -43,9 +43,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 text-white py-8">
-  <div className="container mx-auto px-6">
-    <div className="flex justify-between items-center px-20">
-      <div>
+  <div className="relative container mx-auto px-6">
+      <div className="relative text-center">
         <h3 className="text-xl font-bold mb-2">Get in Touch</h3>
         <button
           onClick={() => setShowModal(true)}
@@ -54,18 +53,24 @@ const Footer = () => {
           Contact the Founders
         </button>
       </div>
-      <div className="flex items-center space-x-3">
-        <p className="text-lg font-semibold">NotHotDog</p>
+      <div className="absolute flex items-center space-x-3 right-10 bottom-4">
         <a
-          href="https://github.com/"
+          href="https://github.com/NehaMadnani/nothotdog-website"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-2xl hover:text-gray-400 transition-all"
+          className="text-4xl hover:text-gray-400 transition-all"
         >
           <i className="bx bxl-github"></i>
         </a>
+        <a
+          href="https://www.linkedin.com/company/nothotdog/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-4xl hover:text-gray-400 transition-all"
+        >
+          <i className="bx bxl-linkedin"></i>
+        </a>
       </div>
-    </div>
   </div>
 
   {/* Modal */}
